@@ -22,5 +22,15 @@
     
     <body>
         <canvas id="renderCanvas"></canvas>
+        
+        <script>
+        	document.addEventListener("DOMContentLoaded", function () {
+            	new Game('renderCanvas');
+        	}, false);
+        </script>
+        
+        <script src="js/game.js"></script>
+		<script src="js/player.js"></script>
+		<script src="js/arena.js"></script>
     </body>
 </html>
