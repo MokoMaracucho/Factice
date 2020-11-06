@@ -5,6 +5,9 @@ Game = function(canvasId) {
     
     this.scene = this._initScene(engine);
     
+    var _arena = new Arena(_this);
+    var _player = new Player(_this, canvas);
+    
     engine.runRenderLoop(function () {
         _this.scene.render();
     });
