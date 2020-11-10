@@ -1,8 +1,51 @@
 Player = function(game, canvas) {
-    this.scene = game.scene;
+    // _this est l'accès à la caméraà l'interieur de Player
+    var _this = this;
 
-    this._initCamera(this.scene, canvas);
+    // Le jeu, chargé dans l'objet Player
+    this.game = game;
+
+    // Axe de mouvement X et Z
+    this.axisMovement = [false,false,false,false];
+
+    window.addEventListener("keyup", function(evt) {
+        
+        switch(evt.keyCode){
+            case 90:
+            _this.camera.axisMovement[0] = false;
+            break;
+            case 83:
+            _this.camera.axisMovement[1] = false;
+            break;
+            case 81:
+            _this.camera.axisMovement[2] = false;
+            break;
+            case 68:
+            _this.camera.axisMovement[3] = false;
+            break;
+        }
+    }, false);
     
+    // Quand les touches sont relachés
+    window.addEventListener("keydown", function(evt) {
+        switch(evt.keyCode){
+            case 90:
+            _this.camera.axisMovement[0] = true;
+            break;
+            case 83:
+            _this.camera.axisMovement[1] = true;
+            break;
+            case 81:
+            _this.camera.axisMovement[2] = true;
+            break;
+            case 68:
+            _this.camera.axisMovement[3] = true;
+            break;
+        }
+    }, false);
+    
+    // Initialisation de la caméra
+    this._initCamera(this.game.scene, canvas); 
 };
 
 Player.prototype = {
